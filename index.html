@@ -1,332 +1,805 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full bg-slate-50">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nu Skin Tu Belleza | Centro estético</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --naranja:#F47B20;
-  --naranja-claro:#FFE3CC;
-  --celeste:#7CCBF2;
-  --celeste-claro:#E4F5FD;
-  --tinta:#10364D;
-  --blanco:#FFFFFF;
-  --display:'Fraunces',Georgia,serif;
-  --texto:'Figtree',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--texto);color:var(--tinta);background:var(--blanco);line-height:1.65;font-size:1.05rem}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-
-/* Cabecera */
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--celeste-claro)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
-.logo{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo svg{width:34px;height:34px}
-.logo span{color:var(--naranja)}
-nav ul{list-style:none;display:flex;gap:26px;flex-wrap:wrap}
-nav a{text-decoration:none;font-weight:500}
-nav a:hover{color:var(--naranja)}
-.btn{display:inline-block;background:var(--naranja);color:var(--blanco);padding:13px 28px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700;transition:transform .2s,background .2s}
-.btn:hover{background:#d9650e;transform:translateY(-2px)}
-.btn.celeste{background:var(--celeste);color:var(--tinta)}
-.btn.celeste:hover{background:#5fbbe8}
-.btn.blanco{background:var(--blanco);color:var(--naranja)}
-
-/* Hero */
-.hero{background:linear-gradient(160deg,var(--celeste-claro) 0%,var(--blanco) 60%);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:80px}
-.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:-.02em}
-.hero p{margin:22px 0 32px;max-width:46ch;font-size:1.15rem}
-.hero .acciones{display:flex;gap:14px;flex-wrap:wrap}
-.hero svg{width:100%;height:auto;display:block}
-.flota{animation:flota 7s ease-in-out infinite}
-.flota.b{animation-delay:-3.5s}
-@keyframes flota{50%{transform:translateY(-14px)}}
-
-/* Servicios */
-section{padding:84px 0}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:14px}
-.intro{max-width:56ch;margin-bottom:48px}
-.servicio{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:center;padding:30px 0;border-top:2px solid var(--celeste-claro)}
-.servicio:nth-child(even){grid-template-columns:1fr 260px}
-.servicio:nth-child(even) .arte{order:2}
-.arte{border-radius:28px;overflow:hidden;aspect-ratio:1/1}
-.arte svg{width:100%;height:100%;display:block}
-.servicio h3{font-family:var(--display);font-size:1.6rem;margin-bottom:8px}
-.servicio ul{list-style:none;margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-.servicio li{background:var(--celeste-claro);padding:5px 14px;border-radius:999px;font-size:.92rem;font-weight:500}
-.servicio:nth-child(even) li{background:var(--naranja-claro)}
-
-/* Promo */
-.promo{background:var(--naranja);color:var(--blanco);position:relative;overflow:hidden}
-.promo .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative}
-.promo h2{margin:0 0 8px}
-.promo p{max-width:48ch}
-.promo svg.deco{position:absolute;right:-60px;top:-80px;width:340px;opacity:.18;pointer-events:none}
-
-/* Nosotras */
-.nosotras .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.nosotras .foto{background:var(--celeste);border-radius:40% 60% 55% 45% / 50% 45% 55% 50%;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
-.nosotras .foto svg{width:80%}
-.valores{margin-top:26px;display:grid;gap:14px}
-.valores div{padding-left:18px;border-left:5px solid var(--naranja)}
-.valores div:nth-child(2){border-color:var(--celeste)}
-.valores strong{display:block}
-
-/* Contacto */
-.contacto{background:var(--celeste-claro)}
-.contacto .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
-.datos p{margin-bottom:10px}
-form{background:var(--blanco);padding:32px;border-radius:28px;display:grid;gap:16px;box-shadow:0 18px 40px -22px rgba(16,54,77,.35)}
-label{font-weight:700;font-size:.95rem;display:grid;gap:6px}
-input,select,textarea{font:inherit;padding:12px 14px;border:2px solid var(--celeste);border-radius:14px;background:var(--blanco);color:var(--tinta)}
-input:focus,select:focus,textarea:focus{border-color:var(--naranja);outline:none}
-textarea{min-height:100px;resize:vertical}
-#aviso{font-weight:700;color:var(--naranja);min-height:1.4em}
-
-footer{background:var(--tinta);color:var(--blanco);text-align:center;padding:30px 24px;font-size:.95rem}
-footer span{color:var(--celeste)}
-
-@media (max-width:820px){
-  .hero .wrap,.nosotras .wrap,.contacto .wrap{grid-template-columns:1fr}
-  .hero .wrap{padding-top:44px;padding-bottom:52px}
-  .servicio,.servicio:nth-child(even){grid-template-columns:1fr}
-  .servicio:nth-child(even) .arte{order:0}
-  .arte{max-width:220px}
-  section{padding:60px 0}
-  nav ul{gap:16px}
-}
-@media (prefers-reduced-motion:reduce){
-  .flota{animation:none}
-  html{scroll-behavior:auto}
-  .btn{transition:none}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesional - Mayda Shirley Pérez Mamani</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                        },
+                        accent: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
+<body class="h-full font-sans antialiased bg-slate-50 text-slate-800 selection:bg-rose-500 selection:text-white">
 
-<header>
-  <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Nu Skin Tu Belleza, inicio">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="20" r="13" fill="#F47B20"/><circle cx="26" cy="20" r="13" fill="#7CCBF2" fill-opacity=".9"/></svg>
-      Nu Skin <span>Tu Belleza</span>
-    </a>
-    <nav aria-label="Principal">
-      <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#promo">Promoción</a></li>
-        <li><a href="#nosotras">Nosotras</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-    <a class="btn" href="#contacto">Reservar cita</a>
-  </div>
-</header>
+    <!-- ==================== PANTALLA DE LOGIN (MODO CLARO CUIDADO) ==================== -->
+    <div id="loginScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-4 transition-opacity duration-300">
+        <div class="w-full max-w-md rounded-2xl p-8 shadow-2xl bg-white border border-slate-200 relative overflow-hidden">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100 shadow-sm mb-3">
+                    <i class="fa-solid fa-lock text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-slate-900">Portal Privado de CV</h2>
+                <p class="text-xs text-slate-500 mt-1">Ingresa las credenciales para acceder al documento</p>
+            </div>
 
-<main>
-  <!-- Hero -->
-  <div class="hero" id="inicio">
-    <div class="wrap">
-      <div>
-        <h1>Tu piel luce mejor cuando se siente cuidada</h1>
-        <p>En Nu Skin Tu Belleza combinamos tratamientos faciales, corporales y de relajación con productos suaves y atención personalizada.</p>
-        <div class="acciones">
-          <a class="btn" href="#contacto">Reservar mi cita</a>
-          <a class="btn celeste" href="#servicios">Ver servicios</a>
+            <!-- Demo Banner -->
+            <div class="mb-6 p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-rose-500 text-base mt-0.5"></i>
+                <div>
+                    <span class="font-semibold text-slate-900">Credenciales por defecto:</span><br>
+                    Usuario: <code class="bg-slate-200/80 px-1.5 py-0.5 rounded font-mono text-slate-800">mayda</code> | Contraseña: <code class="bg-slate-200/80 px-1.5 py-0.5 rounded font-mono text-slate-800">12345</code>
+                </div>
+            </div>
+
+            <!-- Formulario Login -->
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Usuario</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-solid fa-user text-sm"></i>
+                        </span>
+                        <input type="text" id="username" required value="mayda" placeholder="Usuario" 
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-slate-900 text-sm transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Contraseña</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-solid fa-key text-sm"></i>
+                        </span>
+                        <input type="password" id="password" required value="12345" placeholder="••••••••" 
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 text-slate-900 text-sm transition">
+                    </div>
+                </div>
+
+                <div id="loginError" class="hidden text-xs text-rose-600 font-medium py-1 text-center bg-rose-50 rounded-lg border border-rose-200">
+                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Usuario o contraseña incorrectos.
+                </div>
+
+                <button type="submit" 
+                    class="w-full py-3 bg-gradient-to-r from-rose-600 to-accent-600 hover:from-rose-700 hover:to-accent-700 text-white font-semibold rounded-xl shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+                    <span>Acceder al Curriculum</span>
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </button>
+            </form>
         </div>
-      </div>
-      <svg viewBox="0 0 480 460" role="img" aria-label="Ilustración de un rostro sereno entre círculos de color naranja y celeste">
-        <circle class="flota" cx="170" cy="190" r="150" fill="#F47B20"/>
-        <circle class="flota b" cx="300" cy="250" r="160" fill="#7CCBF2"/>
-        <circle cx="400" cy="70" r="34" fill="#FFE3CC"/>
-        <circle cx="60" cy="380" r="26" fill="#E4F5FD" stroke="#7CCBF2" stroke-width="3"/>
-        <!-- rostro -->
-        <ellipse cx="240" cy="235" rx="82" ry="104" fill="#FFFFFF"/>
-        <path d="M150 215c0-70 40-112 92-112 55 0 90 46 90 104-28-8-58-30-74-60-24 34-66 56-108 68z" fill="#10364D"/>
-        <path d="M206 232q12-10 24 0M258 232q12-10 24 0" stroke="#10364D" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <path d="M244 245v26q-8 4-14 0" stroke="#F47B20" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <path d="M218 290q26 22 52 0" stroke="#F47B20" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <circle cx="198" cy="262" r="12" fill="#FFE3CC"/><circle cx="288" cy="262" r="12" fill="#FFE3CC"/>
-        <!-- gotas -->
-        <path d="M410 300c18 24 26 38 26 52a26 26 0 0 1-52 0c0-14 8-28 26-52z" fill="#FFFFFF"/>
-        <path d="M80 110c12 16 18 26 18 36a18 18 0 0 1-36 0c0-10 6-20 18-36z" fill="#F47B20"/>
-      </svg>
     </div>
-  </div>
 
-  <!-- Servicios -->
-  <section id="servicios">
-    <div class="wrap">
-      <h2>Servicios para cada parte de ti</h2>
-      <p class="intro">Elige el tratamiento que necesitas o pide una evaluación gratuita y te recomendamos el plan ideal para tu piel.</p>
+    <!-- ==================== CONTENIDO PRINCIPAL DEL CV (ESTILO SOBRIO, BLANCO Y CLEAN) ==================== -->
+    <div id="mainContent" class="hidden min-h-screen pb-20">
+        
+        <!-- HEADER NAV PRIVADO -->
+        <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold font-heading text-sm shadow">
+                        MP
+                    </div>
+                    <div>
+                        <h1 class="font-bold font-heading text-slate-900 text-sm sm:text-base leading-tight">Mayda Shirley Perez Mamani</h1>
+                        <p class="text-xs text-slate-500">Currículum Vitae Profesional</p>
+                    </div>
+                </div>
 
-      <article class="servicio">
-        <div class="arte">
-          <svg viewBox="0 0 260 260" role="img" aria-label="Ilustración de limpieza facial">
-            <rect width="260" height="260" fill="#E4F5FD"/>
-            <circle cx="130" cy="130" r="86" fill="#7CCBF2"/>
-            <circle cx="130" cy="130" r="58" fill="#FFFFFF"/>
-            <circle cx="130" cy="130" r="30" fill="#F47B20"/>
-            <circle cx="206" cy="58" r="14" fill="#F47B20"/><circle cx="52" cy="196" r="10" fill="#F47B20"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Tratamientos faciales</h3>
-          <p>Limpieza profunda, hidratación, control de acné y rejuvenecimiento. Cada sesión empieza con un análisis de tu tipo de piel.</p>
-          <ul><li>Limpieza profunda</li><li>Hidratación</li><li>Antiedad</li></ul>
-        </div>
-      </article>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="window.print()" title="Imprimir CV" class="p-2 text-slate-600 hover:text-rose-600 hover:bg-slate-100 rounded-xl transition">
+                        <i class="fa-solid fa-print text-base"></i>
+                    </button>
+                    <button onclick="handleLogout()" class="flex items-center gap-2 px-3.5 py-1.5 bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 border border-slate-200 hover:border-rose-200 font-medium text-xs sm:text-sm rounded-xl transition">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="hidden sm:inline">Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-      <article class="servicio">
-        <div class="arte">
-          <svg viewBox="0 0 260 260" role="img" aria-label="Ilustración de masaje corporal con ondas">
-            <rect width="260" height="260" fill="#FFE3CC"/>
-            <path d="M0 90q65-50 130 0t130 0v40q-65-50-130 0t-130 0z" fill="#F47B20"/>
-            <path d="M0 150q65-50 130 0t130 0v40q-65-50-130 0t-130 0z" fill="#7CCBF2"/>
-            <path d="M0 210q65-50 130 0t130 0v60H0z" fill="#FFFFFF"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Masajes y spa corporal</h3>
-          <p>Masajes relajantes y descontracturantes, exfoliaciones y envolturas para soltar tensión y dejar la piel suave.</p>
-          <ul><li>Relajante</li><li>Descontracturante</li><li>Exfoliación</li></ul>
-        </div>
-      </article>
+        <!-- CONTENEDOR DOCUMENTO CV (TARJETA BLANCA IMPRESA SOBRE FONDO SUAVE) -->
+        <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
+            
+            <!-- 1. ENCABEZADO DE PERFIL & DATOS DIRECTOS -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+                    
+                    <!-- Foto de Perfil Interactiva -->
+                    <div class="relative group flex-shrink-0">
+                        <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md bg-slate-100 relative">
+                            <img id="profileImage" src="https://image: "foto.perfil.jpg", 
+        description: "..."/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Mayda Shirley Pérez Mamani" class="w-full h-full object-cover">
+                        </div>
+                        <label for="profileUpload" class="absolute bottom-2 right-2 bg-slate-900 hover:bg-rose-600 text-white p-2 rounded-xl shadow-lg transition cursor-pointer" title="Cambiar Foto de Perfil">
+                            <i class="fa-solid fa-camera text-xs"></i>
+                        </label>
+                        <input type="file" id="profileUpload" accept="image/* "yo i.jpg", description: "..."" class="hidden" onchange="changeProfileImage(event)">
+                    </div>
 
-      <article class="servicio">
-        <div class="arte">
-          <svg viewBox="0 0 260 260" role="img" aria-label="Ilustración de flor para depilación y cuidado de la piel">
-            <rect width="260" height="260" fill="#E4F5FD"/>
-            <g transform="translate(130 130)">
-              <ellipse rx="26" ry="70" cy="-52" fill="#F47B20"/>
-              <ellipse rx="26" ry="70" cy="-52" fill="#F47B20" transform="rotate(72)"/>
-              <ellipse rx="26" ry="70" cy="-52" fill="#7CCBF2" transform="rotate(144)"/>
-              <ellipse rx="26" ry="70" cy="-52" fill="#F47B20" transform="rotate(216)"/>
-              <ellipse rx="26" ry="70" cy="-52" fill="#7CCBF2" transform="rotate(288)"/>
-              <circle r="24" fill="#FFFFFF"/>
-            </g>
-          </svg>
-        </div>
-        <div>
-          <h3>Depilación y cuidado de la piel</h3>
-          <p>Depilación con cera suave y cuidados posteriores para evitar irritación, con productos aptos para pieles sensibles.</p>
-          <ul><li>Cera suave</li><li>Piel sensible</li><li>Cuidado posterior</li></ul>
-        </div>
-      </article>
+                    <!-- Información Principal -->
+                    <div class="flex-1 text-center md:text-left space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-rose-50 border border-rose-100 text-rose-700 rounded-full text-xs font-semibold">
+                            <i class="fa-solid fa-code text-rose-500"></i> Estudiante de Sistemas & Emprendedora Tech
+                        </div>
+                        
+                        <h1 class="text-3xl sm:text-4xl font-bold font-heading text-slate-900 tracking-tight">Mayda Shirley Pérez Mamani</h1>
+                        
+                        <p class="text-slate-600 text-sm leading-relaxed max-w-2xl">
+                            Estudiante avanzada del <strong>IESTP "Santa Lucía"</strong> enfocada en el Desarrollo de Sistemas de Información. Emprendedora proactiva y fundadora de <strong>SkinGlow</strong>. Apasionada por el diseño web frontend, arquitectura de datos y soporte técnico especializado.
+                        </p>
+                        
+                        <!-- Contactos Directos Integrados -->
+                        <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-2.5 text-xs text-slate-600">
+                            <a href="https://wa.me/51914713607?text=Hola%20Mayda,%20vi%20tu%20CV%20interactivo" target="_blank" rel="noopener" 
+                                class="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-3 py-1.5 rounded-xl font-medium transition">
+                                <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i> +51 914 713 607
+                            </a>
+                            <a href="mailto:maydaperezmamani@gmail.com" 
+                                class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-xl font-medium transition">
+                                <i class="fa-solid fa-envelope text-rose-500 text-xs"></i> maydaperezmamani@gmail.com
+                            </a>
+                            <a href="http://www.tiktok.com/@nuskintubelleza" target="_blank" rel="noopener" 
+                                class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-xl font-medium transition">
+                                <i class="fa-brands fa-tiktok text-slate-900 text-xs"></i> @nuskintubelleza
+                            </a>
+                            <span class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-slate-600">
+                                <i class="fa-solid fa-location-dot text-rose-500 text-xs"></i> Santa Lucia / Puno, Perú
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <article class="servicio">
-        <div class="arte">
-          <svg viewBox="0 0 260 260" role="img" aria-label="Ilustración de manos y uñas">
-            <rect width="260" height="260" fill="#FFE3CC"/>
-            <rect x="50" y="90" width="34" height="120" rx="17" fill="#FFFFFF"/>
-            <rect x="94" y="64" width="34" height="146" rx="17" fill="#FFFFFF"/>
-            <rect x="138" y="80" width="34" height="130" rx="17" fill="#FFFFFF"/>
-            <rect x="182" y="108" width="34" height="102" rx="17" fill="#FFFFFF"/>
-            <rect x="53" y="92" width="28" height="26" rx="13" fill="#F47B20"/>
-            <rect x="97" y="66" width="28" height="26" rx="13" fill="#7CCBF2"/>
-            <rect x="141" y="82" width="28" height="26" rx="13" fill="#F47B20"/>
-            <rect x="185" y="110" width="28" height="26" rx="13" fill="#7CCBF2"/>
-          </svg>
-        </div>
-        <div>
-          <h3>Manos y pies</h3>
-          <p>Manicura, pedicura y esmaltado semipermanente en una sala tranquila, con técnicas que cuidan tus uñas.</p>
-          <ul><li>Manicura</li><li>Pedicura</li><li>Semipermanente</li></ul>
-        </div>
-      </article>
+            <!-- 2. RESUMEN PROFESIONAL -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-sm">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h2 class="text-xl font-bold font-heading text-slate-900">Perfil Profesional</h2>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Estudiante proactiva y orientada a soluciones tecnológicas innovadoras, con sólida formación en el Análisis y Desarrollo de Sistemas de Información. Combino habilidades de programación técnica, ensamble y mantenimiento de hardware con la visión comercial estratégica desarrollada en proyectos independientes. Destacada por mi alta capacidad de aprendizaje continuo, atención a los detalles e integridad en el trabajo cooperativo.
+                </p>
+            </section>
+
+            <!-- 3. EDUCACIÓN Y FORMACIÓN (ORDEN CRONOLÓGICO FORMAL) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded-lg bg-accent-50 text-accent-600 flex items-center justify-center font-bold text-sm">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold font-heading text-slate-900">Educación & Formación</h2>
+                        <p class="text-xs text-slate-500">Historial académico estructurado en orden cronológico formal</p>
+                    </div>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-6 ml-3 space-y-6">
+                    
+                    <!-- 1. Educación Superior -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-rose-600 border-4 border-white shadow-sm"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="font-bold text-slate-900 text-base">IESTP "Santa Lucía"</h3>
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-700 border border-rose-100 w-max">Actualmente en Curso</span>
+                        </div>
+                        <p class="text-xs font-semibold text-rose-600 mt-0.5">ARQUITECTURA DE PLATAFORMAS DE SERVICIOS DE TECNOLOGIA DE INFORMACION</p>
+                        <p class="text-xs text-slate-500 mt-1">Especialización en desarrollo web frontend/backend, algoritmos, bases de datos y soporte técnico.</p>
+                    </div>
+
+                    <!-- 2. Educación Secundaria -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="font-bold text-slate-900 text-sm">Educacion segundaria</h3>
+                            <span class="text-xs text-slate-500">Concluido</span>
+                        </div>
+                        <p class="text-xs text-slate-600">Colegio / POLITECNICO INDUSTRIAL SANTA LUCIA</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Educacion productivo para el trabajo.</p>
+                    </div>
+
+                    <!-- 3. Educación Primaria -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-300 border-4 border-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="font-bold text-slate-800 text-sm">Escuela Primaria</h3>
+                            <span class="text-xs text-slate-500">Concluido</span>
+                        </div>
+                        <p class="text-xs text-slate-500">70400 Virgen del carmen</p>
+                    </div>
+
+                    <!-- 4. Educación Inicial -->
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-200 border-4 border-white"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="font-bold text-slate-700 text-sm">Jardín / Educación Inicial</h3>
+                            <span class="text-xs text-slate-400">Concluido</span>
+                        </div>
+                        <p class="text-xs text-slate-400">255 Instituto Inicial Primaria</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 4. DIPLOMAS Y CERTIFICACIONES -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold font-heading text-slate-900">Diplomas & Certificados</h2>
+                            <p class="text-xs text-slate-500">Acreditaciones de estudios y talleres complementarios</p>
+                        </div>
+                    </div>
+
+                    <label for="uploadDiploma" class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-xl transition cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-xs"></i> Añadir Certificado
+                    </label>
+                    <input type="file" id="uploadDiploma" accept="image/*" class="hidden" onchange="addDiploma(event)">
+                </div>
+
+                <div id="diplomasGallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Diploma 1 -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group">
+                        <div class="h-40 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="https://images.unsplash.com/photo-1589330694653-aded6f78655b?auto=format&fit=crop&q=80&w=500" alt="Certificado Desarrollo Web" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1589330694653-aded6f78655b?auto=format&fit=crop&q=80&w=1000', 'Certificado en Desarrollo Web & Sistemas')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ver Certificado
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Certificado en Desarrollo Web</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">IESTP Santa Lucía</p>
+                    </div>
+
+                    <!-- Diploma 2 -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group">
+                        <div class="h-40 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&q=80&w=500" alt="Diploma E-Commerce" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&q=80&w=1000', 'Diploma de Gestión de Negocios')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ver Certificado
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Diploma en E-Commerce & Ventas</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Especialización de Emprendimiento</p>
+                    </div>
+
+                    <!-- Diploma 3 -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group">
+                        <div class="h-40 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=500" alt="Diploma Arduino" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000', 'Constancia de Robótica y Sensores')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ver Certificado
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Taller de Innovación Tecnológica</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Proyectos Arduino & Hardware</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 5. EXPERIENCIA LABORAL & PROYECTOS TÉCNICOS (CON SUBIDA DE FOTOS EVIDENCIAS) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold font-heading text-slate-900">Experiencia Laboral & Proyectos</h2>
+                            <p class="text-xs text-slate-500">Demostraciones de trabajo práctico, asistencia clínica y desarrollo</p>
+                        </div>
+                    </div>
+
+                    <label for="uploadWorkExp" class="px-3.5 py-1.5 bg-rose-600 hover:bg-rose-700 text-white font-medium text-xs rounded-xl transition cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-xs"></i> Subir Foto Evidencia
+                    </label>
+                    <input type="file" id="uploadWorkExp" accept="image/*" class="hidden" onchange="addGalleryImage('workExpGallery', event)">
+                </div>
+
+                <div id="workExpGallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Evidencia Principal: Medicina Estética (3 Años de Experiencia) -->
+                    <div class="bg-rose-50/50 rounded-xl p-3.5 border border-rose-200 hover:border-rose-300 transition group relative">
+                        <span class="absolute top-5 right-5 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10 shadow">
+                            3 Años de Exp.
+                        </span>
+                        <div class="h-56 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="yo i.jpg" alt="Mayda Shirley en Medicina Estética" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" onerror="this.src='https://image: "yo i.jpg", 
+        description: "..."/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=500'">
+                            <button onclick="openModal('yo i.jpg', 'Asistente & Especialista en Medicina Estética (3 Años de Experiencia)')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ver Evidencia Fotográfica
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Asistente & Especialista en Medicina Estética</h4>
+                        <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                            <strong>3 años de trayectoria laboral</strong> en cabina estética clínica. Manejo de aparotología facial y corporal, protocolos de skincare profesional, esterilización, preparación de pacientes y atención personalizada.
+                            
+                        </p>
+                    </div>
+
+                    <!-- Evidencia 2: Soporte Técnico -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group">
+                        <div class="h-56 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=500" alt="Mantenimiento de computadoras" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1000', 'Soporte y Mantenimiento Técnico de Cómputo')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Soporte Técnico de Hardware</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Diagnóstico, mantenimiento y ensamble de equipos informáticos.</p>
+                    </div>
+
+                    <!-- Evidencia 3: Desarrollo Web Frontend -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group">
+                        <div class="h-56 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=500" alt="Desarrollo Web Frontend" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <button onclick="openModal('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1000', 'Interfaces Web')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ampliar
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Desarrollo Frontend Web</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Maquetación responsive con HTML, Tailwind CSS y JavaScript.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. EMPRENDIMIENTOS PERSONALES (SKINGLOW) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold font-heading text-slate-900">Emprendimientos Destacados</h2>
+                            <p class="text-xs text-slate-500">Iniciativas comerciales y experiencia en gestión independiente</p>
+                        </div>
+                    </div>
+
+                    <label for="uploadSkinGlow" class="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 font-medium text-xs rounded-xl transition cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-camera text-xs"></i> Subir Foto de Producto
+                    </label>
+                    <input type="file" id="uploadSkinGlow" accept="image/*" class="hidden" onchange="addGalleryImage('skinglowGallery', event)">
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 mb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-slate-900 text-base">SkinGlow</h3>
+                        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-pink-100 text-pink-700">Cosmética & Skincare</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Emprendimiento personal enfocado en la distribución, marketing digital y ventas de productos cosméticos y cuidado personal. Responsable del control de inventario, atención al cliente y presencia digital en redes sociales.
+                    </p>
+                </div>
+
+                <div id="skinglowGallery" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="h-32 rounded-lg overflow-hidden bg-slate-200 border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=400" alt="SkinGlow 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-32 rounded-lg overflow-hidden bg-slate-200 border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=400" alt="SkinGlow 2" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. HABILIDADES TÉCNICAS & ANÁLISIS FODA PERSONAL -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Habilidades Técnicas -->
+                <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h2 class="text-xl font-bold font-heading text-slate-900">Habilidades Técnicas</h2>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-800">HTML, CSS & Tailwind CSS</span>
+                                <span class="text-rose-600">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-800">Soporte Técnico & Mantenimiento PC</span>
+                                <span class="text-rose-600">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-800">JavaScript Intermedio</span>
+                                <span class="text-rose-600">75%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-800">Lógica de Programación & Arduino</span>
+                                <span class="text-rose-600">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-rose-600 h-full rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FODA Personal (Fortalezas & Debilidades) -->
+                <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h2 class="text-xl font-bold font-heading text-slate-900">Fortalezas & Debilidades</h2>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl">
+                            <h4 class="font-bold text-emerald-900 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i> Fortalezas
+                            </h4>
+                            <p class="text-emerald-800">Resiliencia y espíritu emprendedor, alta proactividad, aprendizaje veloz de nuevas herramientas de software y atención al detalle.</p>
+                        </div>
+
+                        <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl">
+                            <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Debilidades (Puntos a Mejorar)
+                            </h4>
+                            <p class="text-amber-800">Autoexigencia y perfeccionismo elevado en el acabado visual (en constante mejora delegando tareas e impaciencia en tareas muy lentas).</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 8. PASATIEMPOS E INTERESES (HOBBIES) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center font-bold text-sm">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold font-heading text-slate-900">Pasatiempos e Intereses</h2>
+                        <p class="text-xs text-slate-500">Actividades que complementan mi desarrollo profesional y personal</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-microchip text-rose-500 text-xl mb-2"></i>
+                        <h3 class="text-xs font-bold text-slate-900">Electrónica & Tech</h3>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Proyectos Arduino</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-palette text-violet-500 text-xl mb-2"></i>
+                        <h3 class="text-xs font-bold text-slate-900">Cosmética & Belleza</h3>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Skincare & SkinGlow</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-laptop-code text-indigo-500 text-xl mb-2"></i>
+                        <h3 class="text-xs font-bold text-slate-900">Desarrollo Web</h3>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Nuevos frameworks</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-book-open text-emerald-500 text-xl mb-2"></i>
+                        <h3 class="text-xs font-bold text-slate-900">Lectura & Aprendizaje</h3>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Crecimiento continuo</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. ¿CÓMO ME CONOCEN LAS PERSONAS? (PERCEPCIÓN / TESTIMONIOS) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-sm">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold font-heading text-slate-900">¿Cómo me conocen las personas?</h2>
+                        <p class="text-xs text-slate-500">Apreciación del entorno académico, profesional y comercial</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <p class="text-xs text-slate-700 italic leading-relaxed">
+                            "Mayda es muy dedicada y perfeccionista. Cuando asume una responsabilidad tecnológica, se asegura de que todo funcione al 100%."
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 font-bold text-xs flex items-center justify-center">C</div>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Compañera de Estudios</h3>
+                                <p class="text-[10px] text-slate-500">IESTP Santa Lucía</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <p class="text-xs text-slate-700 italic leading-relaxed">
+                            "Impecable atención en SkinGlow. Es amable, puntual y muy clara para explicar las características de cada producto."
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-full bg-violet-100 text-violet-700 font-bold text-xs flex items-center justify-center">K</div>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Cliente de SkinGlow</h3>
+                                <p class="text-[10px] text-slate-500">Juliaca / Puno</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <p class="text-xs text-slate-700 italic leading-relaxed">
+                            "Demuestra constante interés por aprender nuevas tecnologías de programación y resolver fallas técnicas con pensamiento lógico."
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2.5">
+                            <div class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center">D</div>
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900">Docente de Especialidad</h3>
+                                <p class="text-[10px] text-slate-500">Área de Computación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. FORMULARIO DE CONTACTO DIRECTO (GMAIL & WHATSAPP) -->
+            <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="max-w-2xl mx-auto">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-rose-50 text-rose-600 mb-2">
+                            <i class="fa-solid fa-paper-plane text-lg"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold font-heading text-slate-900">Enviar Mensaje Directo</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">El mensaje llegará a <strong class="text-slate-800">maydaperezmamani@gmail.com</strong></p>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Tu Nombre</label>
+                                <input type="text" id="contactName" required placeholder="Ej. Juan Pérez" 
+                                    class="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 text-slate-900 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Tu Correo</label>
+                                <input type="email" id="contactEmail" required placeholder="tuemail@ejemplo.com" 
+                                    class="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 text-slate-900 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Asunto</label>
+                            <input type="text" id="contactSubject" required placeholder="Oportunidad Laboral / Consulta" 
+                                class="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 text-slate-900 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Mensaje</label>
+                            <textarea id="contactMessage" rows="3" required placeholder="Escribe tu mensaje..." 
+                                class="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 text-slate-900 text-sm"></textarea>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="submit" 
+                                class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-xl shadow-sm transition text-xs flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Mensaje (Simulación)</span>
+                            </button>
+                            <a href="https://wa.me/51914713607?text=Hola%20Mayda,%20te%20escribo%20desde%20tu%20CV" target="_blank" rel="noopener"
+                                class="py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition text-xs flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>WhatsApp Directo</span>
+                            </a>
+                            <button type="button" onclick="openDirectGmail()" 
+                                class="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-semibold rounded-xl transition text-xs flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-envelope text-rose-500"></i>
+                                <span>Abrir en Gmail</span>
+                            </button>
+                        </div>
+
+                        <div id="contactSuccess" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs text-center font-medium">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Mensaje simulado correctamente. ¡Gracias por escribir!
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="mt-12 text-center text-xs text-slate-400 py-6 border-t border-slate-200 bg-white">
+            <p>© Mayda Shirley Pérez Mamani — Juliaca / Puno, Perú</p>
+        </footer>
     </div>
-  </section>
 
-  <!-- Promoción -->
-  <section class="promo" id="promo">
-    <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#fff"/></svg>
-    <div class="wrap">
-      <div>
-        <h2>Evaluación de piel gratis en tu primera visita</h2>
-        <p>Reserva un tratamiento facial y te regalamos el análisis de tu piel con un plan de cuidado para llevar a casa.</p>
-      </div>
-      <a class="btn blanco" href="#contacto">Quiero mi evaluación</a>
-    </div>
-  </section>
-
-  <!-- Nosotras -->
-  <section class="nosotras" id="nosotras">
-    <div class="wrap">
-      <div class="foto">
-        <svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de una hoja con una gota de agua">
-          <path d="M150 40c70 20 100 90 70 160-20 40-70 62-110 40C60 210 70 90 150 40z" fill="#FFFFFF"/>
-          <path d="M150 70c0 60-10 110-46 150" stroke="#F47B20" stroke-width="8" fill="none" stroke-linecap="round"/>
-          <circle cx="215" cy="85" r="18" fill="#F47B20"/>
-        </svg>
-      </div>
-      <div>
-        <h2>Un espacio pensado para que te sientas bien</h2>
-        <p>Nu Skin Tu Belleza nació para ofrecer un cuidado estético honesto y cercano. Nuestro equipo escucha lo que quieres lograr y diseña un plan realista para tu piel y tu bienestar.</p>
-        <div class="valores">
-          <div><strong>Atención personalizada</strong>Cada persona recibe un plan propio, sin paquetes genéricos.</div>
-          <div><strong>Productos suaves</strong>Usamos productos seleccionados para respetar tu piel.</div>
-          <div><strong>Higiene estricta</strong>Material esterilizado y cabinas limpias en cada cita.</div>
+    <!-- MODAL DE VISUALIZACIÓN DE DIPLOMAS / FOTOS -->
+    <div id="diplomaModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/70 backdrop-blur-sm p-4">
+        <div class="max-w-2xl w-full bg-white border border-slate-200 rounded-2xl p-5 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-800 text-xl p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modalTitle" class="text-base font-bold text-slate-900 mb-3 font-heading">Vista Previa</h3>
+            <div class="h-80 rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center">
+                <img id="modalImage" src="" alt="Diploma" class="max-h-full max-w-full object-contain">
+            </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Contacto -->
-  <section class="contacto" id="contacto">
-    <div class="wrap">
-      <div class="datos">
-        <h2>Reserva tu cita</h2>
-        <p class="intro" style="margin-bottom:24px">Déjanos tus datos y te escribimos para confirmar el día y la hora.</p>
-        <p><strong>Dirección:</strong> Tu dirección aquí</p>
-        <p><strong>Teléfono / WhatsApp:</strong> +51 000 000 000</p>
-        <p><strong>Correo:</strong> hola@nuskintubelleza.com</p>
-        <p><strong>Horario:</strong> Lunes a sábado, 9:00 a 19:00</p>
-      </div>
-      <form id="formCita">
-        <label>Nombre
-          <input type="text" name="nombre" required autocomplete="name">
-        </label>
-        <label>Teléfono
-          <input type="tel" name="telefono" required autocomplete="tel">
-        </label>
-        <label>Servicio
-          <select name="servicio">
-            <option>Tratamientos faciales</option>
-            <option>Masajes y spa corporal</option>
-            <option>Depilación y cuidado de la piel</option>
-            <option>Manos y pies</option>
-          </select>
-        </label>
-        <label>Mensaje
-          <textarea name="mensaje" placeholder="Cuéntanos qué necesitas"></textarea>
-        </label>
-        <button class="btn" type="submit">Enviar solicitud</button>
-        <p id="aviso" role="status"></p>
-      </form>
-    </div>
-  </section>
-</main>
+    <!-- JAVASCRIPT DE AUTENTICACIÓN E INTERACTIVIDAD -->
+    <script>
+        const AUTH_USER = "mayda";
+        const AUTH_PASS = "12345";
 
-<footer>
-  © <span id="anio"></span> Nu Skin <span>Tu Belleza</span>. Todos los derechos reservados.
-</footer>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("cv_is_logged_in") === "true") {
+                showCV();
+            }
+        });
 
-<script>
-  document.getElementById('anio').textContent = new Date().getFullYear();
-  document.getElementById('formCita').addEventListener('submit', function(e){
-    e.preventDefault();
-    var nombre = this.nombre.value.trim();
-    document.getElementById('aviso').textContent = 'Gracias, ' + nombre + '. Te contactaremos pronto para confirmar tu cita.';
-    this.reset();
-  });
-</script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById("username").value.trim().toLowerCase();
+            const p = document.getElementById("password").value;
+            const err = document.getElementById("loginError");
+
+            if (u === AUTH_USER && p === AUTH_PASS) {
+                err.classList.add("hidden");
+                localStorage.setItem("cv_is_logged_in", "true");
+                showCV();
+            } else {
+                err.classList.remove("hidden");
+            }
+        }
+
+        function showCV() {
+            const login = document.getElementById("loginScreen");
+            const main = document.getElementById("mainContent");
+            login.classList.add("opacity-0", "pointer-events-none");
+            setTimeout(() => {
+                login.classList.add("hidden");
+                main.classList.remove("hidden");
+                main.classList.add("fade-in");
+            }, 250);
+        }
+
+        function handleLogout() {
+            localStorage.removeItem("cv_is_logged_in");
+            location.reload();
+        }
+
+        function changeProfileImage(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("profileImage").src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addGalleryImage(galleryId, e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const gallery = document.getElementById(galleryId);
+                    const div = document.createElement("div");
+                    div.className = "bg-slate-50 rounded-xl p-3.5 border border-slate-200 fade-in";
+                    div.innerHTML = `<div class="h-40 rounded-lg overflow-hidden bg-slate-200"><img src="${event.target.result}" class="w-full h-full object-cover"></div>`;
+                    gallery.prepend(div);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addDiploma(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const gallery = document.getElementById("diplomasGallery");
+                    const card = document.createElement("div");
+                    card.className = "bg-slate-50 rounded-xl p-3.5 border border-slate-200 hover:border-slate-300 transition group fade-in";
+                    card.innerHTML = `
+                        <div class="h-40 rounded-lg overflow-hidden mb-3 relative bg-slate-200">
+                            <img src="${event.target.result}" class="w-full h-full object-cover">
+                            <button onclick="openModal('${event.target.result}', 'Nuevo Documento Cargado')" class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-medium gap-2">
+                                <i class="fa-solid fa-expand"></i> Ver Certificado
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900">Nuevo Certificado</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Documento adjuntado</p>
+                    `;
+                    gallery.prepend(card);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openModal(imgSrc, title) {
+            document.getElementById("modalImage").src = imgSrc;
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("diplomaModal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("diplomaModal").classList.add("hidden");
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const successDiv = document.getElementById("contactSuccess");
+            successDiv.classList.remove("hidden");
+            setTimeout(() => {
+                successDiv.classList.add("hidden");
+                document.getElementById("contactForm").reset();
+            }, 3500);
+        }
+
+        function openDirectGmail() {
+            const name = encodeURIComponent(document.getElementById("contactName").value || "Consulta");
+            const subject = encodeURIComponent(document.getElementById("contactSubject").value || "Contacto CV Mayda");
+            const body = encodeURIComponent(document.getElementById("contactMessage").value || "Hola Mayda, me comunico contigo desde tu CV.");
+            window.open(`mailto:maydaperezmamani@gmail.com?subject=${subject}&body=Nombre: ${name}%0D%0A%0D%0A${body}`, '_blank');
+        }
+    </script>
 </body>
 </html>
